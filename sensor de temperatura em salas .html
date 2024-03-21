@@ -1,13 +1,48 @@
 <!DOCTYPE html>
-
-<html>
+<html lang="en">
 <head>
-		<meta http-equiv="CONTENT-TYPE" content="text/html; charset=UTF-8">
-		<title>Hello, World!</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Aplicativo de Sensor de Temperatura</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      text-align: center;
+    }
+    #temperature {
+      font-size: 24px;
+      margin-bottom: 20px;
+    }
+    #updateBtn {
+      padding: 10px 20px;
+      font-size: 16px;
+      cursor: pointer;
+    }
+  </style>
 </head>
 <body>
-		<h1>
-				Hello, World!
-		</h1>
+  <h1>Aplicativo de Sensor de Temperatura</h1>
+  <div id="temperature">Temperatura: --°C</div>
+  <button id="updateBtn">Atualizar Temperatura</button>
+
+  <script>
+    function getTemperature() {
+      // Simulando uma leitura de temperatura com um valor aleatório entre 0 e 40 graus Celsius
+      return Math.floor(Math.random() * 41);
+    }
+
+    function displayTemperature() {
+      const temperatureElement = document.getElementById('temperature');
+      const temperature = getTemperature();
+      temperatureElement.textContent = `Temperatura: ${temperature}°C`;
+    }
+
+    const updateBtn = document.getElementById('updateBtn');
+    updateBtn.addEventListener('click', displayTemperature);
+
+    // Exibir a temperatura ao carregar a página
+    displayTemperature();
+  </script>
 </body>
 </html>
+
